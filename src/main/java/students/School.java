@@ -25,6 +25,6 @@ public class School {
         Consumer<CharSequence> cs = s -> System.out.println(s);
         doWithAll(lst, cs);
         System.out.println("---------------------------");
-        doWithAll(select(lst, s -> s.length() > 3), s -> System.out.println(s));
+        doWithAll(select(lst, s -> s.length() > 3), cs);
     }
 }
