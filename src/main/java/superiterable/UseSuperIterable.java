@@ -37,5 +37,54 @@ public class UseSuperIterable {
                 .filter(s -> s.getGpa() > 3)
                 .flatMap(s -> s.getCourses().stream())
                 .forEach(s -> System.out.println(s));
+// -----------------------------------------------------------
+        List<Student> ls  = List.of(
+                new Student("Fred", 3.2, "Math", "Physics"),
+                new Student("Jim", 2.2, "Art"),
+                new Student("Sheila", 3.9, "Math", "Physics", "Astrophysics", "Quantum Mechanics")
+        );
+        System.out.println("----------- Lab -------------");
+        ls.stream()
+                .forEach(System.out::println);
+//                .forEach(s -> System.out.println(s));
+
+        System.out.println("------------------------");
+        ls.stream()
+                .map(Student::getName)
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .filter(s -> s.getGpa() > 3)
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .filter(s -> s.getGpa() > 3)
+                .map(s -> s.getName() + " got grade " + s.getGpa())
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .flatMap(s -> s.getCourses().stream())
+                .sorted()
+                .distinct()
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .flatMap(s -> s.getCourses().stream().map(c -> s.getName() + " takes " + c))
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .map(s -> s.setGpa(s.getGpa() + 0.2))
+                .forEach(System.out::println);
+
+        System.out.println("------------------------");
+        ls.stream()
+                .forEach(System.out::println);
+
+
     }
 }

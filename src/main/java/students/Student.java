@@ -21,6 +21,12 @@ public class Student {
         return gpa;
     }
 
+    public Student setGpa(double gpa) {
+        return new Student(this.getName(),
+                gpa,
+                this.getCourses().toArray(new String[]{}));
+    }
+
     public List<String> getCourses() {
         return courses;
     }
